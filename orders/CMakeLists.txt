@@ -1,4 +1,4 @@
-# Сборка сервиса Task 1 и небольшого набора проверок на C++17.
+# Сборка сервиса Task 1 + Task 2 и небольшого набора проверок на C++17.
 cmake_minimum_required(VERSION 3.16)
 project(soa_orders LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
@@ -6,8 +6,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Для работы с базой нужны заголовки и библиотека libpq, для работников — поддержка потоков.
 find_package(PostgreSQL REQUIRED)
 find_package(Threads REQUIRED)
-# Три собственных исходника собираются в одну программу; HTTP и JSON подключаются заголовками.
-add_executable(orders src/main.cpp src/database.cpp src/service.cpp)
+# Четыре исходника собираются в одну программу; HTTP и JSON подключаются заголовками.
+add_executable(orders src/main.cpp src/database.cpp src/service.cpp src/events.cpp)
 target_include_directories(orders PRIVATE vendor src)
 target_link_libraries(orders PRIVATE PostgreSQL::PostgreSQL Threads::Threads)
 # На Windows дополнительно подключаем системные библиотеки сети и криптографии.

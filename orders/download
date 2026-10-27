@@ -1,0 +1,6 @@
+build*
+*.user
+tests/results
+*.exe
+
+.qtcreator
