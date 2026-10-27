@@ -1,5 +1,0 @@
-build*/
-.qtcreator/
-*.user
-*.exe
-tests/results/
